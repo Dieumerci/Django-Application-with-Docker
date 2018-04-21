@@ -1,0 +1,42 @@
+{% include 'partials/header.html' %}
+   
+    <div class="container">
+        <hr>
+        <h1>My todolist</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="todolist not-done">
+                 <h3>Todos</h3> 
+                        <hr>
+                        <ul id="sortable" class="list-unstyled">
+                        {% for todo in todos %}
+                        <li class="ui-state-default">
+                            <h3><a href="/todos/details/{{todo.id}}">{{todo.title}}: #No - {{todo.id}}</a></h3>
+                            <div class="checkbox">
+                                
+                                {{todo.text}}
+                               
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="todolist">
+                 <h3>Add Some Todos</h3>
+                 <hr>
+                    <ul id="done-items" class="list-unstyled">
+                        <li>
+                            <a class="btn btn-success" href="/todos/add" role="button"><span class="glyphicon glyphicon-plus"></span> Add New ToDo</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'partials/footer.html' %}

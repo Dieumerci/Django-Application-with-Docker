@@ -1,0 +1,53 @@
+{% include 'partials/deatils.header.html' %}
+   
+        <div class="container">
+            <hr>
+            <h1>Single Todo Page</h1>  
+            <hr>
+
+                <div class="row">
+                    <div class="panel panel-info widget">
+                        <div class=" panel-heading">
+                            
+                            <h2 class="panel-title">
+                                This todo was created on: {{todo.created_at}}</h2>
+
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <div class="row">
+
+                                        <div class="col-xs-12 col-md-12">
+                                            <div>
+                                                <h3><a href="">{{ todo.title}}</a></h3>
+                                            </div>
+                                            <div class="comment-text">
+                                                    {{ todo.text}}
+                                            </div>
+                                            <div class="action">
+                                                <button type="button" class="btn btn-danger" title="Edit">
+                                                    <span class="glyphicon glyphicon-pencil">EDIT</span>
+                                                </button>
+                                                <button type="button" class="btn btn-warning" title="Approved">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </button>
+                                                <button type="button" class="btn btn-info" title="Delete">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </button>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                    
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <a class="btn btn-success" href="/todos" role="button">Go Home</a>
+                
+            </div>
+            
+{% include 'partials/footer.html' %}

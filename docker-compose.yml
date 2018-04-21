@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/codedir
+    ports:
+      - "8000:8000"
+
+
+      version: '2'
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: todolist
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      DJ_DEBUG: "True"
+    volumes:
+      - ./pythonproject:/codedir       # change python to your project name
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - db
