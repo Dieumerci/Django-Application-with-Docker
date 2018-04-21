@@ -25,7 +25,7 @@ services:
     environment:
       DJ_DEBUG: "True"
     volumes:
-      - ./pythonproject:/codedir       # change python to your project name
+      - ./todolist:/codedir       # change python to your project name
     ports:
       - "8000:8000"
     depends_on:
